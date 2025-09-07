@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect"/>
+<link as="style" href="https://fonts.googleapis.com/css2?display=swap&family=Inter:wght@400;500;700;900&family=Noto+Sans:wght@400;500;700;900" onload="this.rel='stylesheet'" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<title>Settings | Event Manager</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<style type="text/tailwindcss">
+  :root {
+    --primary-color: #1173d4;
+    --secondary-color: #1c2127;
+    --background-color: #0d1117;
+    --text-primary: #ffffff;
+    --text-secondary: #9aa5b1;
+    --card-background: #161b22;
+  }
+  body {
+    font-family: Inter, "Noto Sans", sans-serif;
+    background: var(--background-color);
+    color: var(--text-primary);
+  }
+</style>
+</head>
+<body>
+<div class="flex flex-col min-h-screen">
+
+  <!-- Header -->
+  <header class="flex items-center p-4 sticky top-0 bg-[var(--secondary-color)] shadow-md z-10">
+    <button onclick="history.back()" class="p-2 rounded-full hover:bg-gray-700/40 transition">
+      <span class="material-symbols-outlined text-2xl">arrow_back_ios_new</span>
+    </button>
+    <h1 class="text-xl font-bold flex-1 text-center pr-8">Settings</h1>
+  </header>
+
+  <!-- Main Content -->
+  <main class="flex-grow px-4 py-6 space-y-8">
+    
+    <!-- Account Section -->
+    <section>
+      <h2 class="text-lg font-semibold text-[var(--text-secondary)] mb-4">Account</h2>
+      <div class="bg-[var(--card-background)] rounded-lg p-4 space-y-4">
+        <div class="flex items-center gap-4">
+          <div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full h-16 w-16 border-2 border-gray-700" 
+               style='background-image: url("https://i.pravatar.cc/100?img=12");'></div>
+          <div>
+            <p class="text-lg font-semibold">Liam Carter</p>
+            <p class="text-[var(--text-secondary)] text-sm">Student at State University</p>
+          </div>
+        </div>
+        <div class="border-t border-gray-700 pt-4">
+          <a class="flex items-center gap-4 group py-2 hover:bg-gray-700/30 rounded-md px-2 transition" href="profile.html">
+            <div class="flex items-center justify-center rounded-md bg-[var(--secondary-color)] size-10 text-[var(--text-secondary)] group-hover:text-[var(--primary-color)] transition-colors">
+              <span class="material-symbols-outlined">person</span>
+            </div>
+            <p class="text-base font-medium flex-1 truncate">Edit Profile</p>
+            <span class="material-symbols-outlined text-[var(--text-secondary)]">chevron_right</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Preferences Section -->
+    <section>
+      <h2 class="text-lg font-semibold text-[var(--text-secondary)] mb-4">Preferences</h2>
+      <div class="bg-[var(--card-background)] rounded-lg">
+        <a class="flex items-center gap-4 p-4 group hover:bg-gray-700/30 transition" href="notifications.html">
+          <div class="flex items-center justify-center rounded-md bg-[var(--secondary-color)] size-10 text-[var(--text-secondary)] group-hover:text-[var(--primary-color)]">
+            <span class="material-symbols-outlined">notifications</span>
+          </div>
+          <p class="text-base font-medium flex-1 truncate">Notifications</p>
+          <span class="material-symbols-outlined text-[var(--text-secondary)]">chevron_right</span>
+        </a>
+        <div class="border-t border-gray-700 mx-4"></div>
+        <a class="flex items-center gap-4 p-4 group hover:bg-gray-700/30 transition" href="privacy.html">
+          <div class="flex items-center justify-center rounded-md bg-[var(--secondary-color)] size-10 text-[var(--text-secondary)] group-hover:text-[var(--primary-color)]">
+            <span class="material-symbols-outlined">shield</span>
+          </div>
+          <p class="text-base font-medium flex-1 truncate">Privacy</p>
+          <span class="material-symbols-outlined text-[var(--text-secondary)]">chevron_right</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- Support Section -->
+    <section>
+      <h2 class="text-lg font-semibold text-[var(--text-secondary)] mb-4">Support</h2>
+      <div class="bg-[var(--card-background)] rounded-lg">
+        <a class="flex items-center gap-4 p-4 group hover:bg-gray-700/30 transition" href="support.html">
+          <div class="flex items-center justify-center rounded-md bg-[var(--secondary-color)] size-10 text-[var(--text-secondary)] group-hover:text-[var(--primary-color)]">
+            <span class="material-symbols-outlined">help</span>
+          </div>
+          <p class="text-base font-medium flex-1 truncate">Help & Support</p>
+          <span class="material-symbols-outlined text-[var(--text-secondary)]">chevron_right</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- Logout -->
+    <div>
+      <button onclick="location.href='index.html'" class="flex w-full items-center justify-center rounded-md h-12 px-4 bg-red-600/20 text-red-400 font-bold hover:bg-red-600/30 transition">
+        Log Out
+      </button>
+    </div>
+  </main>
+
+  <!-- Footer Navigation -->
+  <footer class="sticky bottom-0 bg-[var(--secondary-color)] border-t border-gray-700">
+    <nav class="flex justify-around items-center h-16">
+      <a class="flex flex-col items-center gap-1 text-[var(--text-secondary)] hover:text-[var(--primary-color)] transition" href="attendee-dashboard.html">
+        <span class="material-symbols-outlined text-2xl">home</span>
+        <p class="text-xs font-medium">Home</p>
+      </a>
+      <a class="flex flex-col items-center gap-1 text-[var(--text-secondary)] hover:text-[var(--primary-color)] transition" href="upcoming-events.html">
+        <span class="material-symbols-outlined text-2xl">calendar_month</span>
+        <p class="text-xs font-medium">My Events</p>
+      </a>
+      <a class="flex flex-col items-center gap-1 text-[var(--text-secondary)] hover:text-[var(--primary-color)] transition" href="explore.html">
+        <span class="material-symbols-outlined text-2xl">search</span>
+        <p class="text-xs font-medium">Explore</p>
+      </a>
+      <a class="flex flex-col items-center gap-1 text-[var(--primary-color)]" href="settings.html">
+        <span class="material-symbols-outlined text-2xl" style="font-variation-settings:'FILL' 1;">person</span>
+        <p class="text-xs font-medium">Profile</p>
+      </a>
+    </nav>
+  </footer>
+</div>
+</body>
+</html>

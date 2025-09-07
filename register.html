@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Register | Event App</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<style>
+  :root { --primary-color: #1173d4; }
+  body { font-family: 'Inter', sans-serif; }
+</style>
+</head>
+<body class="bg-gray-900 text-white">
+<div class="flex min-h-screen items-center justify-center px-4">
+  <div class="w-full max-w-md space-y-8">
+    
+    <!-- Title -->
+    <div class="text-center">
+      <h1 class="text-3xl font-bold">Create Account</h1>
+      <p class="mt-2 text-gray-400">Join to access events & features.</p>
+    </div>
+
+    <!-- Form -->
+    <div class="rounded-xl bg-gray-800 p-6 shadow-lg">
+      <form class="space-y-6" action="#">
+        
+        <!-- Name -->
+        <div class="relative">
+          <span class="material-symbols-outlined absolute inset-y-0 left-0 pl-3 flex items-center text-gray-500">badge</span>
+          <input type="text" placeholder="Full Name"
+            class="form-input w-full rounded-lg bg-gray-700 border-gray-600 pl-10 pr-4 py-3 text-white placeholder-gray-400 focus:border-[var(--primary-color)] focus:ring-2 focus:ring-[var(--primary-color)]"/>
+        </div>
+
+        <!-- Email -->
+        <div class="relative">
+          <span class="material-symbols-outlined absolute inset-y-0 left-0 pl-3 flex items-center text-gray-500">mail</span>
+          <input type="email" placeholder="Email or Student ID"
+            class="form-input w-full rounded-lg bg-gray-700 border-gray-600 pl-10 pr-4 py-3 text-white placeholder-gray-400 focus:border-[var(--primary-color)] focus:ring-2 focus:ring-[var(--primary-color)]"/>
+        </div>
+
+        <!-- Password -->
+        <div class="relative">
+          <span class="material-symbols-outlined absolute inset-y-0 left-0 pl-3 flex items-center text-gray-500">lock</span>
+          <input type="password" placeholder="Password"
+            class="form-input w-full rounded-lg bg-gray-700 border-gray-600 pl-10 pr-4 py-3 text-white placeholder-gray-400 focus:border-[var(--primary-color)] focus:ring-2 focus:ring-[var(--primary-color)]"/>
+        </div>
+
+        <!-- Confirm Password -->
+        <div class="relative">
+          <span class="material-symbols-outlined absolute inset-y-0 left-0 pl-3 flex items-center text-gray-500">lock_reset</span>
+          <input type="password" placeholder="Confirm Password"
+            class="form-input w-full rounded-lg bg-gray-700 border-gray-600 pl-10 pr-4 py-3 text-white placeholder-gray-400 focus:border-[var(--primary-color)] focus:ring-2 focus:ring-[var(--primary-color)]"/>
+        </div>
+
+        <!-- User Type -->
+        <div class="flex items-center justify-between">
+          <p class="text-sm text-gray-300">Register as:</p>
+          <div class="flex space-x-4">
+            <label class="flex items-center space-x-2">
+              <input type="radio" name="userType" value="attendee" checked
+                class="form-radio text-[var(--primary-color)] bg-gray-700 border-gray-600"/>
+              <span class="text-sm">Attendee</span>
+            </label>
+            <label class="flex items-center space-x-2">
+              <input type="radio" name="userType" value="admin"
+                class="form-radio text-[var(--primary-color)] bg-gray-700 border-gray-600"/>
+              <span class="text-sm">Admin</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Submit -->
+        <button type="button" id="registerBtn"
+          class="w-full rounded-lg bg-[var(--primary-color)] py-3 font-semibold hover:bg-blue-700 focus:ring-2 focus:ring-offset-2 focus:ring-[var(--primary-color)]">
+          Register
+        </button>
+      </form>
+    </div>
+
+    <!-- Switch to Login -->
+    <p class="mt-6 text-center text-sm text-gray-400">
+      Already have an account?
+      <a href="Login.html" class="font-medium text-[var(--primary-color)] hover:text-blue-500">Sign In</a>
+    </p>
+  </div>
+</div>
+
+<script>
+  document.getElementById('registerBtn').addEventListener('click', function() {
+    const userType = document.querySelector('input[name="userType"]:checked').value;
+    
+    if (userType === 'admin') {
+      window.location.href = 'Admin_Dashboard.html';
+    } else {
+      window.location.href = 'Dashboard_Atnd.html';
+    }
+  });
+</script>
+</body>
+</html>

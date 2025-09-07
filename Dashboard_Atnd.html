@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Attendee Dashboard</title>
+<link href="data:image/x-icon;base64," rel="icon" type="image/x-icon"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;700;900&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<style type="text/tailwindcss">
+  :root {
+    --primary-color: #1173d4;
+  }
+  body {
+    font-family: 'Be Vietnam Pro', sans-serif;
+  }
+</style>
+<style>
+  body { min-height: max(884px, 100dvh); }
+</style>
+</head>
+<body class="bg-gray-100">
+<div class="flex min-h-screen flex-col">
+
+  <!-- Header -->
+  <header class="sticky top-0 z-10 bg-white shadow-sm">
+    <div class="flex items-center p-4 justify-between">
+      <h1 class="text-[#111418] text-2xl font-bold tracking-tight">Dashboard</h1>
+      <button onclick="location.href='Login.html'" class="flex items-center justify-center rounded-full h-12 w-12 bg-[var(--primary-color)] text-white shadow-md hover:shadow-lg transition">
+        <span class="material-symbols-outlined">logout</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Main -->
+  <main class="flex-grow p-4 space-y-8">
+    
+    <!-- Upcoming Events -->
+    <section>
+      <h2 class="text-xl font-semibold text-gray-800 mb-4">Upcoming Events</h2>
+      <div class="space-y-4">
+        
+        <div class="flex items-start justify-between gap-4 rounded-lg bg-white p-4 shadow hover:shadow-md transition">
+          <div class="flex flex-1 flex-col gap-2">
+            <p class="text-sm font-medium text-gray-500">Tomorrow, 7:00 PM</p>
+            <p class="text-lg font-semibold text-gray-900">Campus Career Fair</p>
+            <p class="text-sm text-gray-500">Business School</p>
+            <button class="flex w-fit items-center rounded-md h-9 px-4 bg-gray-100 text-sm font-semibold text-gray-800 hover:bg-gray-200 transition">View Details</button>
+          </div>
+          <div class="h-28 w-28 flex-shrink-0 rounded-md bg-cover bg-center shadow-sm"
+            style='background-image: url("https://picsum.photos/200/200?random=1");'></div>
+        </div>
+
+        <div class="flex items-start justify-between gap-4 rounded-lg bg-white p-4 shadow hover:shadow-md transition">
+          <div class="flex flex-1 flex-col gap-2">
+            <p class="text-sm font-medium text-gray-500">Next Week, 2:00 PM</p>
+            <p class="text-lg font-semibold text-gray-900">Alumni Networking Mixer</p>
+            <p class="text-sm text-gray-500">Student Union</p>
+            <button class="flex w-fit items-center rounded-md h-9 px-4 bg-gray-100 text-sm font-semibold text-gray-800 hover:bg-gray-200 transition">View Details</button>
+          </div>
+          <div class="h-28 w-28 flex-shrink-0 rounded-md bg-cover bg-center shadow-sm"
+            style='background-image: url("https://picsum.photos/200/200?random=2");'></div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Overview -->
+    <section>
+      <h2 class="text-xl font-semibold text-gray-800 mb-4">Overview</h2>
+      <div class="grid grid-cols-2 gap-4">
+        <div class="flex flex-col gap-1 rounded-lg bg-gradient-to-r from-blue-50 to-blue-100 p-4 shadow">
+          <p class="text-sm font-medium text-gray-600">My Events</p>
+          <p class="text-2xl font-bold tracking-tight text-gray-900">3</p>
+        </div>
+        <div class="flex flex-col gap-1 rounded-lg bg-gradient-to-r from-green-50 to-green-100 p-4 shadow">
+          <p class="text-sm font-medium text-gray-600">Points</p>
+          <p class="text-2xl font-bold tracking-tight text-gray-900">125</p>
+        </div>
+        <div class="flex flex-col gap-1 rounded-lg bg-gradient-to-r from-indigo-50 to-indigo-100 p-4 shadow col-span-2">
+          <p class="text-sm font-medium text-gray-600">Next Event</p>
+          <p class="text-2xl font-bold tracking-tight text-gray-900">Tomorrow</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer Nav -->
+  <footer class="sticky bottom-0 border-t border-gray-200 bg-white/80 backdrop-blur-sm">
+    <nav class="flex justify-around py-2">
+      <a class="flex flex-col items-center gap-1 text-[var(--primary-color)]" href="Dashboard_Atnd.html">
+        <span class="material-symbols-outlined"> event </span>
+        <p class="text-xs font-medium">Events</p>
+      </a>
+      <a class="flex flex-col items-center gap-1 text-gray-500 hover:text-[var(--primary-color)]" href="#">
+        <span class="material-symbols-outlined"> qr_code </span>
+        <p class="text-xs font-medium">My QR</p>
+      </a>
+      <a class="flex flex-col items-center gap-1 text-gray-500 hover:text-[var(--primary-color)]" href="#">
+        <span class="material-symbols-outlined"> campaign </span>
+        <p class="text-xs font-medium">Feedback</p>
+      </a>
+      <a class="flex flex-col items-center gap-1 text-gray-500 hover:text-[var(--primary-color)]" href="#">
+        <span class="material-symbols-outlined"> person </span>
+        <p class="text-xs font-medium">Profile</p>
+      </a>
+    </nav>
+  </footer>
+
+</div>
+</body>
+</html>

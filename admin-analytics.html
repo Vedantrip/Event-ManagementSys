@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Analytics Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        :root {
+            --primary-color: #1173d4;
+            --secondary-color: #0ea5e9;
+            --accent-color: #f97316;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            min-height: 100vh;
+        }
+        .card {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05), 0 1px 3px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1), 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+        .nav-item {
+            transition: all 0.2s ease;
+        }
+        .nav-item.active {
+            color: var(--primary-color);
+            background-color: rgba(17, 115, 212, 0.1);
+        }
+        .nav-item:hover:not(.active) {
+            color: var(--secondary-color);
+        }
+        .progress-bar {
+            transition: width 1s ease-in-out;
+        }
+        .stat-card {
+            background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+            border-left: 4px solid var(--primary-color);
+        }
+        .attendance-chart-bar {
+            transition: height 0.5s ease-in-out;
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+    </style>
+</head>
+<body class="text-gray-800">
+    <!-- Header -->
+    <header class="sticky top-0 z-10 bg-white shadow-sm">
+        <div class="flex items-center p-4 justify-between">
+            <button onclick="location.href='Admin_Dashboard.html'" class="flex items-center justify-center rounded-full h-10 w-10 text-gray-600 hover:bg-gray-100 transition">
+                <span class="material-symbols-outlined">arrow_back</span>
+            </button>
+            <h1 class="text-xl font-bold text-gray-900">Analytics Dashboard</h1>
+            <div class="flex items-center gap-2">
+                <button class="flex items-center justify-center rounded-full h-10 w-10 text-gray-600 hover:bg-gray-100 transition">
+                    <span class="material-symbols-outlined">notifications</span>
+                </button>
+                <button class="flex items-center justify-center rounded-full h-10 w-10 text-gray-600 hover:bg-gray-100 transition">
+                    <span class="material-symbols-outlined">logout</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="p-4 max-w-6xl mx-auto">
+        <!-- Stats Overview -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+            <div class="stat-card card p-4">
+                <div class="flex justify-between items-center">
+                    <h3 class="text-sm font-medium text-gray-500">Total Events</h3>
+                    <span class="material-symbols-outlined text-blue-500 bg-blue-100 p-2 rounded-full">event</span>
+                </div>
+                <p class="text-2xl font-bold mt-2">24</p>
+                <p class="text-sm text-green-600 flex items-center mt-1">
+                    <span class="material-symbols-outlined text-base">trending_up</span>
+                    +12% from last month
+                </p>
+            </div>
+            
+            <div class="stat-card card p-4">
+                <div class="flex justify-between items-center">
+                    <h3 class="text-sm font-medium text-gray-500">Attendance Rate</h3>
+                    <span class="material-symbols-outlined text-green-500 bg-green-100 p-2 rounded-full">groups</span>
+                </div>
+                <p class="text-2xl font-bold mt-2">85%</p>
+                <p class="text-sm text-green-600 flex items-center mt-1">
+                    <span class="material-symbols-outlined text-base">trending_up</span>
+                    +5% from last month
+                </p>
+            </div>
+            
+            <div class="stat-card card p-4">
+                <div class="flex justify-between items-center">
+                    <h3 class="text-sm font-medium text-gray-500">Avg. Feedback</h3>
+                    <span class="material-symbols-outlined text-yellow-500 bg-yellow-100 p-2 rounded-full">star</span>
+                </div>
+                <p class="text-2xl font-bold mt-2">4.5<span class="text-lg text-gray-500">/5</span></p>
+                <p class="text-sm text-green-600 flex items-center mt-1">
+                    <span class="material-symbols-outlined text-base">trending_up</span>
+                    +0.2 from last month
+                </p>
+            </div>
+            
+            <div class="stat-card card p-4">
+                <div class="flex justify-between items-center">
+                    <h3 class="text-sm font-medium text-gray-500">New Registrations</h3>
+                    <span class="material-symbols-outlined text-purple-500 bg-purple-100 p-2 rounded-full">person_add</span>
+                </div>
+                <p class="text-2xl font-bold mt-2">142</p>
+                <p class="text-sm text-green-600 flex items-center mt-1">
+                    <span class="material-symbols-outlined text-base">trending_up</span>
+                    +18% from last month
+                </p>
+            </div>
+        </div>
+
+        <!-- Charts Section -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
+            <!-- Attendance Chart -->
+            <div class="card p-4">
+                <div class="flex justify-between items-center mb-4">
+                    <h2 class="text-lg font-semibold">Attendance Rate by Event</h2>
+                    <span class="text-sm text-gray-500">Last 30 Days</span>
+                </div>
+                <div class="grid grid-flow-col gap-4 items-end h-48 px-2 py-4">
+                    <div class="flex flex-col items-center justify-end h-full">
+                        <div class="w-10 rounded-t-lg bg-gradient-to-t from-blue-400 to-blue-300 attendance-chart-bar" style="height: 60%"></div>
+                        <p class="text-xs mt-2 text-gray-500">Event A</p>
+                    </div>
+                    <div class="flex flex-col items-center justify-end h-full">
+                        <div class="w-10 rounded-t-lg bg-gradient-to-t from-blue-400 to-blue-300 attendance-chart-bar" style="height: 30%"></div>
+                        <p class="text-xs mt-2 text-gray-500">Event B</p>
+                    </div>
+                    <div class="flex flex-col items-center justify-end h-full">
+                        <div class="w-10 rounded-t-lg bg-gradient-to-t from-blue-400 to-blue-300 attendance-chart-bar" style="height: 90%"></div>
+                        <p class="text-xs mt-2 text-gray-500">Event C</p>
+                    </div>
+                    <div class="flex flex-col items-center justify-end h-full">
+                        <div class="w-10 rounded-t-lg bg-gradient-to-t from-blue-400 to-blue-300 attendance-chart-bar" style="height: 75%"></div>
+                        <p class="text-xs mt-2 text-gray-500">Event D</p>
+                    </div>
+                    <div class="flex flex-col items-center justify-end h-full">
+                        <div class="w-10 rounded-t-lg bg-gradient-to-t from-blue-400 to-blue-300 attendance-chart-bar" style="height: 45%"></div>
+                        <p class="text-xs mt-2 text-gray-500">Event E</p>
+                    </div>
+                    <div class="flex flex-col items-center justify-end h-full">
+                        <div class="w-10 rounded-t-lg bg-gradient-to-t from-blue-400 to-blue-300 attendance-chart-bar" style="height: 80%"></div>
+                        <p class="text-xs mt-2 text-gray-500">Event F</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Feedback Chart -->
+            <div class="card p-4">
+                <div class="flex justify-between items-center mb-4">
+                    <h2 class="text-lg font-semibold">Feedback Ratings</h2>
+                    <span class="text-sm text-gray-500">Last 30 Days</span>
+                </div>
+                <div class="flex justify-center items-center h-48">
+                    <div class="relative w-40 h-40">
+                        <svg class="w-full h-full" viewBox="0 0 36 36">
+                            <path d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="#e6e6e6" stroke-width="3"></path>
+                            <path d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831" fill="none" stroke="#f0b429" stroke-dasharray="90, 100" stroke-linecap="round" stroke-width="3"></path>
+                            <text class="fill-current text-center text-sm font-bold text-gray-700" text-anchor="middle" x="18" y="22">4.5/5</text>
+                        </svg>
+                    </div>
+                </div>
+                <div class="flex justify-center mt-2">
+                    <div class="flex items-center text-sm text-green-600">
+                        <span class="material-symbols-outlined text-base mr-1">trending_up</span>
+                        +0.2 from last month
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Top Participants -->
+        <div class="card p-4 mb-6">
+            <div class="flex justify-between items-center mb-4">
+                <h2 class="text-lg font-semibold">Top Participants</h2>
+                <a href="#" class="text-sm font-medium text-blue-600 hover:underline">View All</a>
+            </div>
+            <div class="space-y-4">
+                <div class="flex items-center gap-3">
+                    <div class="h-10 w-10 shrink-0 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 font-semibold">LC</div>
+                    <div class="flex-1">
+                        <p class="text-sm font-medium text-gray-800">Liam Carter</p>
+                        <div class="mt-1 h-2 rounded-full bg-gray-200">
+                            <div class="h-2 rounded-full bg-blue-500 progress-bar" style="width: 50%"></div>
+                        </div>
+                    </div>
+                    <span class="text-sm font-semibold text-gray-600">5 Events</span>
+                </div>
+                <div class="flex items-center gap-3">
+                    <div class="h-10 w-10 shrink-0 rounded-full bg-green-100 flex items-center justify-center text-green-600 font-semibold">OH</div>
+                    <div class="flex-1">
+                        <p class="text-sm font-medium text-gray-800">Olivia Hayes</p>
+                        <div class="mt-1 h-2 rounded-full bg-gray-200">
+                            <div class="h-2 rounded-full bg-green-500 progress-bar" style="width: 40%"></div>
+                        </div>
+                    </div>
+                    <span class="text-sm font-semibold text-gray-600">4 Events</span>
+                </div>
+                <div class="flex items-center gap-3">
+                    <div class="h-10 w-10 shrink-0 rounded-full bg-purple-100 flex items-center justify-center text-purple-600 font-semibold">NB</div>
+                    <div class="flex-1">
+                        <p class="text-sm font-medium text-gray-800">Noah Bennett</p>
+                        <div class="mt-1 h-2 rounded-full bg-gray-200">
+                            <div class="h-2 rounded-full bg-purple-500 progress-bar" style="width: 80%"></div>
+                        </div>
+                    </div>
+                    <span class="text-sm font-semibold text-gray-600">8 Events</span>
+                </div>
+                <div class="flex items-center gap-3">
+                    <div class="h-10 w-10 shrink-0 rounded-full bg-orange-100 flex items-center justify-center text-orange-600 font-semibold">AT</div>
+                    <div class="flex-1">
+                        <p class="text-sm font-medium text-gray-800">Ava Thompson</p>
+                        <div class="mt-1 h-2 rounded-full bg-gray-200">
+                            <div class="h-2 rounded-full bg-orange-500 progress-bar" style="width: 70%"></div>
+                        </div>
+                    </div>
+                    <span class="text-sm font-semibold text-gray-600">7 Events</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Recent Activity -->
+        <div class="card p-4">
+            <h2 class="text-lg font-semibold mb-4">Recent Activity</h2>
+            <div class="space-y-4">
+                <div class="flex items-start gap-3">
+                    <div class="h-10 w-10 shrink-0 rounded-full bg-blue-100 flex items-center justify-center mt-1">
+                        <span class="material-symbols-outlined text-blue-600 text-base">event_available</span>
+                    </div>
+                    <div class="flex-1">
+                        <p class="text-sm font-medium text-gray-800">New event created: Tech Conference 2023</p>
+                        <p class="text-xs text-gray-500">2 hours ago</p>
+                    </div>
+                </div>
+                <div class="flex items-start gap-3">
+                    <div class="h-10 w-10 shrink-0 rounded-full bg-green-100 flex items-center justify-center mt-1">
+                        <span class="material-symbols-outlined text-green-600 text-base">person_add</span>
+                    </div>
+                    <div class="flex-1">
+                        <p class="text-sm font-medium text-gray-800">25 new users registered for Workshop</p>
+                        <p class="text-xs text-gray-500">5 hours ago</p>
+                    </div>
+                </div>
+                <div class="flex items-start gap-3">
+                    <div class="h-10 w-10 shrink-0 rounded-full bg-yellow-100 flex items-center justify-center mt-1">
+                        <span class="material-symbols-outlined text-yellow-600 text-base">reviews</span>
+                    </div>
+                    <div class="flex-1">
+                        <p class="text-sm font-medium text-gray-800">New feedback received for Networking Event</p>
+                        <p class="text-xs text-gray-500">Yesterday</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer Nav -->
+    <footer class="sticky bottom-0 border-t border-gray-200 bg-white/95 backdrop-blur-sm">
+        <nav class="flex justify-around py-2">
+            <a href="Admin_Dashboard.html" class="nav-item flex flex-col items-center gap-1 text-gray-500 hover:text-blue-600 py-2 px-3 rounded-lg">
+                <span class="material-symbols-outlined">event</span>
+                <p class="text-xs font-medium">Events</p>
+            </a>
+            <a href="admin-attendees.html" class="nav-item flex flex-col items-center gap-1 text-gray-500 hover:text-blue-600 py-2 px-3 rounded-lg">
+                <span class="material-symbols-outlined">group</span>
+                <p class="text-xs font-medium">Attendees</p>
+            </a>
+            <a href="admin-feedback.html" class="nav-item flex flex-col items-center gap-1 text-gray-500 hover:text-blue-600 py-2 px-3 rounded-lg">
+                <span class="material-symbols-outlined">campaign</span>
+                <p class="text-xs font-medium">Feedback</p>
+            </a>
+            <a href="admin-analytics.html" class="nav-item active flex flex-col items-center gap-1 text-blue-600 py-2 px-3 rounded-lg">
+                <span class="material-symbols-outlined">analytics</span>
+                <p class="text-xs font-bold">Analytics</p>
+            </a>
+            <a href="admin-settings.html" class="nav-item flex flex-col items-center gap-1 text-gray-500 hover:text-blue-600 py-2 px-3 rounded-lg">
+                <span class="material-symbols-outlined">settings</span>
+                <p class="text-xs font-medium">Settings</p>
+            </a>
+        </nav>
+    </footer>
+
+    <script>
+        // Simple animations for page elements
+        document.addEventListener('DOMContentLoaded', function() {
+            // Animate progress bars
+            const progressBars = document.querySelectorAll('.progress-bar');
+            progressBars.forEach(bar => {
+                const width = bar.style.width;
+                bar.style.width = '0';
+                setTimeout(() => {
+                    bar.style.width = width;
+                }, 300);
+            });
+            
+            // Animate chart bars
+            const chartBars = document.querySelectorAll('.attendance-chart-bar');
+            chartBars.forEach(bar => {
+                const height = bar.style.height;
+                bar.style.height = '0';
+                setTimeout(() => {
+                    bar.style.height = height;
+                }, 500);
+            });
+        });
+    </script>
+</body>
+</html>

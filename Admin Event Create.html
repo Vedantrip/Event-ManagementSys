@@ -1,0 +1,100 @@
+<html>
+<head>
+<meta charset="utf-8"/>
+<link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect"/>
+<link as="style" href="https://fonts.googleapis.com/css2?display=swap&family=Inter:wght@400;500;600;700;900&family=Noto+Sans:wght@400;500;700;900" onload="this.rel='stylesheet'" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<title>Admin - Create Event</title>
+<link href="data:image/x-icon;base64," rel="icon" type="image/x-icon"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<style>
+  body {
+    min-height: max(884px, 100dvh);
+  }
+</style>
+</head>
+<body class="bg-gray-100">
+<div class="relative flex min-h-screen flex-col justify-between overflow-x-hidden font-[Inter]">
+
+  <!-- Header -->
+  <header class="bg-gradient-to-r from-blue-600 to-indigo-600 p-4 flex items-center justify-between shadow-md">
+    <h1 class="text-white text-xl font-semibold tracking-tight">Admin Panel – Create Event</h1>
+    <button onclick="location.href='Login.html'" class="bg-white/20 text-white px-3 py-2 rounded-md hover:bg-white/30 transition flex items-center">
+      <span class="material-symbols-outlined mr-1">logout</span> Logout
+    </button>
+  </header>
+
+  <!-- Main -->
+  <main class="flex-1 p-6 flex justify-center items-start">
+    <div class="bg-white rounded-2xl shadow-lg w-full max-w-2xl p-6 space-y-6">
+
+      <h2 class="text-lg font-semibold text-gray-800 border-b pb-2">Event Details</h2>
+
+      <!-- Event Name -->
+      <div class="space-y-1">
+        <label class="text-gray-700 text-sm font-medium flex items-center gap-1" for="event-name">
+          <span class="material-symbols-outlined text-blue-600 text-base">event</span> Event Name
+        </label>
+        <input id="event-name" placeholder="Enter event name"
+          class="form-input w-full rounded-lg border-gray-300 focus:ring-2 focus:ring-blue-500 h-12 p-3 transition hover:border-blue-400"/>
+      </div>
+
+      <!-- Description -->
+      <div class="space-y-1">
+        <label class="text-gray-700 text-sm font-medium flex items-center gap-1" for="description">
+          <span class="material-symbols-outlined text-blue-600 text-base">description</span> Description
+        </label>
+        <textarea id="description" placeholder="Enter event description"
+          class="form-textarea w-full rounded-lg border-gray-300 focus:ring-2 focus:ring-blue-500 h-28 p-3 transition hover:border-blue-400"></textarea>
+      </div>
+
+      <!-- Date & Time -->
+      <div class="grid grid-cols-2 gap-4">
+        <div class="space-y-1">
+          <label class="text-gray-700 text-sm font-medium flex items-center gap-1" for="date">
+            <span class="material-symbols-outlined text-blue-600 text-base">calendar_today</span> Date
+          </label>
+          <input id="date" type="date"
+            class="form-input w-full rounded-lg border-gray-300 focus:ring-2 focus:ring-blue-500 h-12 p-3 transition hover:border-blue-400"/>
+        </div>
+
+        <div class="space-y-1">
+          <label class="text-gray-700 text-sm font-medium flex items-center gap-1" for="time">
+            <span class="material-symbols-outlined text-blue-600 text-base">schedule</span> Time
+          </label>
+          <input id="time" type="time"
+            class="form-input w-full rounded-lg border-gray-300 focus:ring-2 focus:ring-blue-500 h-12 p-3 transition hover:border-blue-400"/>
+        </div>
+      </div>
+
+      <!-- Registration Deadline -->
+      <div class="space-y-1">
+        <label class="text-gray-700 text-sm font-medium flex items-center gap-1" for="registration-deadline">
+          <span class="material-symbols-outlined text-blue-600 text-base">event_busy</span> Registration Deadline
+        </label>
+        <input id="registration-deadline" type="date"
+          class="form-input w-full rounded-lg border-gray-300 focus:ring-2 focus:ring-blue-500 h-12 p-3 transition hover:border-blue-400"/>
+      </div>
+
+      <!-- Attendee Limit -->
+      <div class="space-y-1">
+        <label class="text-gray-700 text-sm font-medium flex items-center gap-1" for="attendee-limit">
+          <span class="material-symbols-outlined text-blue-600 text-base">groups</span> Attendee Limit
+        </label>
+        <input id="attendee-limit" type="number" placeholder="Enter limit"
+          class="form-input w-full rounded-lg border-gray-300 focus:ring-2 focus:ring-blue-500 h-12 p-3 transition hover:border-blue-400"/>
+      </div>
+
+      <!-- Submit -->
+      <div class="pt-4">
+        <button onclick="location.href='Admin Event Poster.html'" class="w-full h-12 bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-semibold rounded-lg shadow-md hover:shadow-lg hover:from-blue-700 hover:to-indigo-700 transition">
+          <span class="material-symbols-outlined align-middle mr-1">check_circle</span> Create Event
+        </button>
+      </div>
+
+    </div>
+  </main>
+
+</div>
+</body>
+</html>
